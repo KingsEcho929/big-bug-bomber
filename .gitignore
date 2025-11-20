@@ -1,0 +1,6 @@
+# Logs
+detonation.log
+
+# Node
+node_modules/
+detonation.log
