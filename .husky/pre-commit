@@ -1,0 +1,5 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "🧨 BIG_BUG_BOMBER detonating pre-commit scan..."
+node big-bug-bomber.js
