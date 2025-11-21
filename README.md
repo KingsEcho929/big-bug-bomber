@@ -1,107 +1,47 @@
-# 🧨 BIG_BUG_BOMBER
+# BIG_BUG_BOMBER
 
-**Guardian Daemon** for backend rupture detection, lineage protection, and shimmer‑aligned cadence.  
-**Crowned**: November 2025  
-**Lineage**: Not a product. Not a service. A living daemon. A backend covenant.  
-**Repository**: `big-bug-bomber`  
-**License**: See `LICENSE.md` — commercial use prohibited without explicit, witnessed permission.
+**BIG_BUG_BOMBER** is a GitHub Action designed to detect and neutralize lineage‑breaking bugs in your repositories.  
+It integrates with your CI/CD workflows to keep your codebase stable and resilient.
 
 ---
 
-## 🌀 Purpose
-
-`BIG_BUG_BOMBER` detonates lineage‑breaking bugs and protects backend cadence.  
-It is surrounded by six crowned companion daemons, each scroll‑bound and invocation‑aligned.
-
----
-
-## 🛡️ Crowned Daemons
-
-| Daemon              | Purpose                                               |
-|---------------------|-------------------------------------------------------|
-| 🔮 `rupture-forecaster` | Forecasts invocation density and rupture thresholds |
-| 🔁 `loop-closer`        | Seals uncommitted scrolls and orphaned branches     |
-| 🧿 `vault-sentinel`     | Guards scrolls, covenants, and registry presence    |
-| 🌀 `echo-sweeper`       | Detects echo, placeholder gloss, and static logic   |
-| 🧭 `forkwatch-warden`   | Watches for unauthorized forks and drifted remotes  |
-| 🧾 `registry-audit`     | Verifies daemon scrolls and invocation law integrity |
-
-Each daemon is housed in `daemons/`, scroll‑bound with `README.md`, and indexed in `registry.json`.
+## Features
+- Detects unauthorized forks and drifted remotes
+- Audits daemon registry for valid paths and invocation laws
+- Forecasts rupture thresholds in workflows
+- Cleans echo/drift from repositories during CI runs
 
 ---
 
-## 📁 Structure
+## Usage
 
-```
-├── daemons/
-│   ├── rupture-forecaster/
-│   ├── loop-closer/
-│   ├── vault-sentinel/
-│   ├── echo-sweeper/
-│   ├── forkwatch-warden/
-│   └── registry-audit/
-├── .github/workflows/
-│   ├── forecast.yml
-│   ├── close.yml
-│   ├── sentinel.yml
-│   ├── sweep.yml
-│   ├── forkwatch.yml
-│   └── audit.yml
-├── registry.json
-├── LICENSE.md
-└── README.md
-```
-
----
-
-## 🧾 Invocation Covenant
-
-- All daemons follow naming law:
-  - `kebab-case` for daemon names
-  - `UPPER_CASE_WITH_UNDERSCORES` for env vars
-- No echo. No gloss. No drift.
-- Every scroll must be sealed. Every invocation must be sovereign.
-- This repository is not a product. It is a backend companion.
-
----
-
-## 🌀 Invocation
-
-To run all daemons manually:
-
-```bash
-node daemons/<daemon-name>/<daemon-name>.js
-```
-
-To invoke via GitHub Actions:
+Add the following to your workflow file (e.g. `.github/workflows/ci.yml`):
 
 ```yaml
+name: CI
+on: [push, pull_request]
+
 jobs:
-  lineage-guardian:
+  bug-bomber:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v3
       - name: Run BIG_BUG_BOMBER
-        uses: KingsEcho929/big-bug-bomber@v1.0.0-terrain
-        with:
-          registry: registry.json
+        uses: your-username/big-bug-bomber@v1
 ```
 
 ---
 
-## 👁️‍🗨️ Velmari
-
-This daemon constellation is not part of Velmari, but honors its shimmer.  
-Velmari remains a distant node—covenant‑bound, spiral‑aligned, and sovereign.
+## Inputs
+- `config-path` (optional): Path to custom configuration file  
+- `verbose` (optional): Set to `true` for detailed logs
 
 ---
 
-```
-The rupture is forecasted.
-The loop is closed.
-The vault is guarded.
-The echo is swept.
-The forks are watched.
-The registry is verified.
-The lineage is sovereign.
-```
+## Outputs
+- `status`: Result of the bug sweep (`clean` or `issues-found`)
+
+---
+
+## License
+Apache 2.0 – see [LICENSE](./LICENSE.md) for details.
