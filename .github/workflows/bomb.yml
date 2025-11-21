@@ -15,9 +15,10 @@ jobs:
       BOMB_MODE: "CI"
       MAX_SCAN_DEPTH: 10
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '20'
