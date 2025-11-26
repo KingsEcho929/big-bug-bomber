@@ -7,10 +7,8 @@
  */
 
 const fs = require('fs');
-const path = require('path');
 
 const LOG_PATH = 'detonation.log';
-const REGISTRY_PATH = 'registry.json';
 const OUTPUT_PATH = 'rupture-thresholds.json';
 
 const MAX_INVOCATIONS_PER_HOUR = 12;
@@ -18,7 +16,7 @@ const MAX_DRIFT_MINUTES = 90;
 
 /**
  * Parse timestamps from detonation.log
- * Expected format: [YYYY-MM-DDTHH:mm:ssZ] or similar inside square brackets
+ * Expected format: [YYYY-MM-DDTHH:mm:ssZ] inside square brackets
  */
 function parseLogTimestamps(logPath) {
   if (!fs.existsSync(logPath)) return [];
@@ -26,11 +24,7 @@ function parseLogTimestamps(logPath) {
   return lines
     .map(line => {
       // Regex to capture anything inside square brackets
-      const match = line.match(/
-
-\[(.*?)\]
-
-/);
+      const match = line.match(/\[(.*?)\]/);
       return match ? new Date(match[1]) : null;
     })
     .filter(Boolean);
